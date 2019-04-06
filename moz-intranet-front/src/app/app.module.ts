@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import {DataService} from "./services/data.service";
 import {HttpClientModule} from "@angular/common/http";
 import {Configuration} from "./configuration/app.constants";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MaterialModule} from "./material-module";
 
 @NgModule({
   declarations: [
@@ -12,9 +15,15 @@ import {Configuration} from "./configuration/app.constants";
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
   providers: [DataService, Configuration],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

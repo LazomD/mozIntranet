@@ -9,6 +9,7 @@ import {DataService} from "./services/data.service";
 export class AppComponent {
   title = 'moz-intranet-front';
   data:string = "depart";
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
 
   constructor(private dataService: DataService) {
