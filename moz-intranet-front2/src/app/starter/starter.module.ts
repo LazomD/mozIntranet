@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { StarterComponent } from './starter.component';
 import {DataService} from "../services/data.service";
@@ -22,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [FormsModule, CommonModule, RouterModule.forChild(routes)],
+  imports: [FormsModule, CommonModule, HighchartsChartModule, RouterModule.forChild(routes)],
   declarations: [StarterComponent],
   providers: [DataService, Configuration]
 })

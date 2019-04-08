@@ -22,6 +22,8 @@ import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 import { Approutes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpinnerComponent } from './shared/spinner.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { SpinnerComponent } from './shared/spinner.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HighchartsChartModule,
     HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(Approutes, { useHash: false })
