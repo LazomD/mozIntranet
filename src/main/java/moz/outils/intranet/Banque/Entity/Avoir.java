@@ -1,16 +1,17 @@
 package moz.outils.intranet.Banque.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Avoir {
 
-    public Avoir(Integer userId, Integer typeId, Integer timestamp, Double montant) {
+    public Avoir() {
+    }
+
+    public Avoir(Integer userId, Integer typeId, AvoirTimestamp avoirTimestamp, Double montant) {
         this.userId = userId;
         this.typeId = typeId;
-        this.timestamp = timestamp;
+        this.avoirTimestamp = avoirTimestamp;
         this.montant = montant;
     }
 
@@ -19,7 +20,10 @@ public class Avoir {
     private Integer id;
     private Integer userId;
     private Integer typeId;
-    private Integer timestamp;
+
+    @ManyToOne
+    @JoinColumn(name = "avoir_timestamp_id")
+    private AvoirTimestamp avoirTimestamp;
     private Double montant;
 
     public Integer getId() {
@@ -46,19 +50,19 @@ public class Avoir {
         this.typeId = typeId;
     }
 
-    public Integer getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
-    }
-
     public Double getMontant() {
         return montant;
     }
 
     public void setMontant(Double montant) {
         this.montant = montant;
+    }
+
+    public AvoirTimestamp getAvoirTimestamp() {
+        return avoirTimestamp;
+    }
+
+    public void setAvoirTimestamp(AvoirTimestamp avoirTimestamp) {
+        this.avoirTimestamp = avoirTimestamp;
     }
 }
