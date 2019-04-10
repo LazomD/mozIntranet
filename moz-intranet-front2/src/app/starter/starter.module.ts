@@ -7,15 +7,16 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { StarterComponent } from './starter.component';
 import {DataService} from "../services/data.service";
 import {Configuration} from "../configuration/app.constants";
+import {BanqueService} from "../services/banque.service";
 
 const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Starter Page',
+      title: 'Patrimoine',
       urls: [
         { title: 'Dashboard', url: '/dashboard' },
-        { title: 'Starter Page' }
+        { title: 'Patrimoine' }
       ]
     },
     component: StarterComponent
@@ -25,6 +26,6 @@ const routes: Routes = [
 @NgModule({
   imports: [FormsModule, CommonModule, HighchartsChartModule, RouterModule.forChild(routes)],
   declarations: [StarterComponent],
-  providers: [DataService, Configuration]
+  providers: [DataService, BanqueService, Configuration]
 })
 export class StarterModule {}

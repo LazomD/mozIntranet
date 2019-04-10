@@ -25,7 +25,10 @@ public class InitData {
 
     @EventListener
     public void appReady(ApplicationReadyEvent event) {
+
         AvoirTimestamp avoirTimestamp = new AvoirTimestamp(1, 1528488279);
+        /*avoirTimestampRepository.save(avoirTimestamp);
+        avoirRepository.save(new Avoir(1, 2, avoirTimestamp, Double.valueOf(10000)));*/
         avoirTimestampRepository.save(avoirTimestamp);
         avoirRepository.save(new Avoir(1, 1, avoirTimestamp, Double.valueOf(458.5)));
 
