@@ -9,7 +9,7 @@ import {
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Routes, RouterModule } from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -42,7 +42,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     HighchartsChartModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(Approutes, { useHash: false })
+    RouterModule.forRoot(Approutes, { preloadingStrategy: PreloadAllModules, useHash: false })
   ],
   providers: [
     {
