@@ -12,10 +12,6 @@ export const Approutes: Routes = [
       {
         path: 'starter',
         loadChildren: './starter/starter.module#StarterModule'
-      },
-      {
-        path: 'component',
-        loadChildren: './component/component.module#ComponentsModule'
       }
     ]
   },

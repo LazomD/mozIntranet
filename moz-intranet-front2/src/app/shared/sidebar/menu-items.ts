@@ -7,23 +7,6 @@ export const ROUTES: RouteInfo[] = [
     icon: 'mdi mdi-cash-100',
     class: '',
     extralink: false,
-    submenu: [
-      {
-        path: '/component/alert',
-        title: 'Alert',
-        icon: 'mdi mdi-message-bulleted',
-        class: '',
-        extralink: false,
-        submenu: []
-      }
-    ]
-  },
-  {
-    path: '/component/alert',
-    title: 'Alert',
-    icon: 'mdi mdi-message-bulleted',
-    class: '',
-    extralink: false,
     submenu: []
   }
 ];
