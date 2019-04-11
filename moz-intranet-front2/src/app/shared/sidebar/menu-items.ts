@@ -2,7 +2,7 @@ import { RouteInfo } from './sidebar.metadata';
 
 export const ROUTES: RouteInfo[] = [
   {
-    path: '/starter',
+    path: '/banque',
     title: 'Banque',
     icon: 'mdi mdi-cash-100',
     class: '',

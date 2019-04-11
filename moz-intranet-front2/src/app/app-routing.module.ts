@@ -8,15 +8,15 @@ export const Approutes: Routes = [
     path: '',
     component: FullComponent,
     children: [
-      { path: '', redirectTo: '/starter', pathMatch: 'full' },
+      { path: '', redirectTo: '/banque', pathMatch: 'full' },
       {
-        path: 'starter',
-        loadChildren: './starter/starter.module#StarterModule'
+        path: 'banque',
+        loadChildren: './banque/banque.module#BanqueModule'
       }
     ]
   },
   {
     path: '**',
-    redirectTo: '/starter'
+    redirectTo: '/banque'
   }
 ];

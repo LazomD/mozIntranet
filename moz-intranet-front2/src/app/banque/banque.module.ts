@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HighchartsChartModule } from 'highcharts-angular';
 
-import { StarterComponent } from './starter.component';
+import { BanqueComponent } from './banque.component';
 import {DataService} from "../services/data.service";
 import {Configuration} from "../configuration/app.constants";
 import {BanqueService} from "../services/banque.service";
@@ -19,13 +19,13 @@ const routes: Routes = [
         { title: 'Patrimoine' }
       ]
     },
-    component: StarterComponent
+    component: BanqueComponent
   }
 ];
 
 @NgModule({
   imports: [FormsModule, CommonModule, HighchartsChartModule, RouterModule.forChild(routes)],
-  declarations: [StarterComponent],
+  declarations: [BanqueComponent],
   providers: [DataService, BanqueService, Configuration]
 })
-export class StarterModule {}
+export class BanqueModule {}

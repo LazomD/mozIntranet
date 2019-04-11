@@ -5,9 +5,9 @@ import {BanqueService} from "../services/banque.service";
 import {Options} from "highcharts";
 
 @Component({
-  templateUrl: './starter.component.html'
+  templateUrl: './banque.component.html'
 })
-export class StarterComponent implements AfterViewInit, OnInit {
+export class BanqueComponent implements AfterViewInit, OnInit {
 
   Highcharts = Highcharts;
   updateFlag = true;
