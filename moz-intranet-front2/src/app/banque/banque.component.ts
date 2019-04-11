@@ -52,7 +52,7 @@ export class BanqueComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(()=>this.chargerDonnee(),1000);
+    this.chargerDonnee();
   }
 
   ngAfterViewInit() {}
