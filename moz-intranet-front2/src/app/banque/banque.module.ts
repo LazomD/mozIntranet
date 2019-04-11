@@ -8,6 +8,7 @@ import { BanqueComponent } from './banque.component';
 import {DataService} from "../services/data.service";
 import {Configuration} from "../configuration/app.constants";
 import {BanqueService} from "../services/banque.service";
+import {BanqueResolver} from "./banque.resolver";
 
 const routes: Routes = [
   {
@@ -27,6 +28,6 @@ const routes: Routes = [
 @NgModule({
   imports: [FormsModule, CommonModule, HighchartsChartModule, RouterModule.forChild(routes)],
   declarations: [BanqueComponent],
-  providers: [DataService, BanqueService, Configuration]
+  providers: [DataService, BanqueService, Configuration, BanqueResolver]
 })
 export class BanqueModule {}
