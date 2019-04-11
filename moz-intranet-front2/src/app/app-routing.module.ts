@@ -12,8 +12,12 @@ export const Approutes: Routes = [
       {
         path: 'banque',
         loadChildren: './banque/banque.module#BanqueModule'
+      },
+      {
+        path: 'sport',
+        loadChildren: './sport/sport.module#SportModule'
       }
-    ]
+      ]
   },
   {
     path: '**',

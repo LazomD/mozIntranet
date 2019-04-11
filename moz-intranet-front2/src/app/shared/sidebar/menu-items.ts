@@ -8,5 +8,13 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
+  },
+  {
+    path: '/sport',
+    title: 'Sport',
+    icon: 'mdi mdi-football',
+    class: '',
+    extralink: false,
+    submenu: []
   }
 ];

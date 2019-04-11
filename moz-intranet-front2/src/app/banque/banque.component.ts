@@ -17,7 +17,7 @@ export class BanqueComponent implements AfterViewInit, OnInit {
     },
 
     title: {
-      text: 'Patrimoine'
+      text: ''
     },
 
     xAxis: {
@@ -48,9 +48,7 @@ export class BanqueComponent implements AfterViewInit, OnInit {
     }]
   };
 
-  subtitle: string;
   constructor(private dataService: DataService, private banqueService: BanqueService) {
-    this.subtitle = 'This is some text within a card block.';
   }
 
   ngOnInit(): void {
@@ -60,9 +58,6 @@ export class BanqueComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {}
 
   public chargerDonnee(): void {
-    this.dataService.getData().subscribe(
-      (reponse: any) => this.subtitle = reponse['valeur']
-    );
 
     this.banqueService.getDataPatrimoineTotal().subscribe(
       (reponse) => {
