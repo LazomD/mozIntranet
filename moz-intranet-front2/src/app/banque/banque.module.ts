@@ -19,7 +19,8 @@ const routes: Routes = [
         { title: 'Patrimoine' }
       ]
     },
-    component: BanqueComponent
+    component: BanqueComponent,
+    resolve: {donnees: BanqueResolver}
   }
 ];
 

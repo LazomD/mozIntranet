@@ -1,8 +1,7 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
-import {DataService} from "../services/data.service";
 import * as Highcharts from 'highcharts';
-import {BanqueService} from "../services/banque.service";
-import {Options} from "highcharts";
+import {ActivatedRoute, Data, NavigationEnd, Router} from "@angular/router";
+import {filter} from "rxjs/operators";
 
 @Component({
   templateUrl: './banque.component.html'
@@ -48,23 +47,28 @@ export class BanqueComponent implements AfterViewInit, OnInit {
     }]
   };
 
-  constructor(private dataService: DataService, private banqueService: BanqueService) {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    setTimeout(()=>this.chargerDonnee(),1000);
+    this.route.data.subscribe((data: Data) => {
+        this.chartOptions.series[0].data = data["donnees"];
+        this.updateFlag = true;
+        console.log(data["donnees"]);
+      }
+    );
+
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      )
+      .subscribe((event: NavigationEnd) => {
+        console.log('Got the Event URL as ', event.url);
+        if(event.urlAfterRedirects.includes('project')) {
+          console.log('This was redirected to the Project Component');
+        }
+      });
   }
 
   ngAfterViewInit() {}
-
-  public chargerDonnee(): void {
-
-    this.banqueService.getDataPatrimoineTotal().subscribe(
-      (reponse) => {
-        this.chartOptions.series[0].data = reponse;
-        this.updateFlag = true;
-        console.log(reponse);
-      }
-  )
-  }
 }
