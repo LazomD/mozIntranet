@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
+import {Component, AfterViewInit, OnInit, Output, EventEmitter} from '@angular/core';
 import { ROUTES } from './menu-items';
 import { RouteInfo } from './sidebar.metadata';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,14 +10,18 @@ declare var $: any;
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
-  showMenu = '';
+
+  @Output() ssmenu = new EventEmitter<any[]>();
+  showMenu = 'Banque';
   public sidebarnavItems: any[];
   // this is for the open close
   addExpandClass(element: any) {
-    if (element === this.showMenu) {
+    console.log(element.submenu);
+    this.ssmenu.emit(element.submenu);
+    if (element.title === this.showMenu) {
       this.showMenu = '0';
     } else {
-      this.showMenu = element;
+      this.showMenu = element.title;
     }
   }
 

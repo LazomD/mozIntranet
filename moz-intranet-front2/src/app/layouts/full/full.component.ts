@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import {ROUTES} from "../../shared/sidebar/menu-items";
 declare var $: any;
 
 @Component({
@@ -17,6 +18,7 @@ export class FullComponent implements OnInit {
   public defaultSidebar: any;
   public showMobileMenu = false;
   public expandLogo = false;
+  public ssmenu;
 
   options = {
     sidebartype: 'full',
@@ -32,6 +34,7 @@ export class FullComponent implements OnInit {
     }
     this.defaultSidebar = this.options.sidebartype;
     this.handleSidebar();
+    this.ssmenu = ROUTES[0].submenu;
   }
 
   @HostListener('window:resize', ['$event'])
@@ -51,5 +54,9 @@ export class FullComponent implements OnInit {
         break;
       default:
     }
+  }
+
+  majSsMenu(ssmenu: any[]) {
+    this.ssmenu = ssmenu;
   }
 }

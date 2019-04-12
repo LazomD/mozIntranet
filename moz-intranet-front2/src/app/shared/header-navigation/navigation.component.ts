@@ -1,21 +1,18 @@
-import { Component, AfterViewInit } from '@angular/core';
+import {Component, AfterViewInit, Input} from '@angular/core';
 import {
-  NgbModal,
-  ModalDismissReasons,
-  NgbPanelChangeEvent,
-  NgbCarouselConfig
+  NgbModal
 } from '@ng-bootstrap/ng-bootstrap';
+import {Router} from "@angular/router";
 declare var $: any;
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html'
 })
-export class NavigationComponent implements AfterViewInit {
+export class NavigationComponent {
 
-  public showSearch = false;
+  @Input() ssmenu: any[];
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private router: Router) {}
 
-  ngAfterViewInit() {}
 }

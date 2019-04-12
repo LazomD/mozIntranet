@@ -2,7 +2,9 @@
 <!-- toggle and nav items -->
 <!-- ============================================================== -->
 <ul class="navbar-nav float-left mr-auto">
-
+  <li class="nav-item" *ngFor = "let topNavItem of ssmenu">
+    <a class="nav-link" [class.active]="router.url === topNavItem.path" [routerLink]="topNavItem.path">{{topNavItem.title}}</a>
+  </li>
 </ul>
 <!-- ============================================================== -->
 <!-- Right side toggle and nav items -->

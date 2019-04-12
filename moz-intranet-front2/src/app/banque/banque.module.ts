@@ -10,8 +10,9 @@ import {Configuration} from "../configuration/app.constants";
 import {BanqueService} from "../services/banque.service";
 
 const routes: Routes = [
+  { path: 'banque', redirectTo: '/banque/patrimoine', pathMatch: 'full' },
   {
-    path: '',
+    path: 'patrimoine',
     data: {
       title: 'Patrimoine',
       urls: [

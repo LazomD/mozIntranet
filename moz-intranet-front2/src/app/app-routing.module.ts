@@ -8,7 +8,7 @@ export const Approutes: Routes = [
     path: '',
     component: FullComponent,
     children: [
-      { path: '', redirectTo: '/banque', pathMatch: 'full' },
+      { path: '', redirectTo: '/banque/patrimoine', pathMatch: 'full' },
       {
         path: 'banque',
         loadChildren: './banque/banque.module#BanqueModule'
@@ -21,6 +21,6 @@ export const Approutes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/banque'
+    redirectTo: '/banque/patrimoine'
   }
 ];
