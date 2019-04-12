@@ -16,8 +16,8 @@ export const ROUTES: RouteInfo[] = [
       submenu: []
     },
       {
-        path: '/banque/ss2',
-        title: 'ss2',
+        path: '/banque/detailpatrimoine',
+        title: 'Détail patrimoine',
         icon: 'mdi mdi-football',
         class: '',
         extralink: false,

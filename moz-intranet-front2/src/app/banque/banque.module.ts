@@ -8,6 +8,8 @@ import { BanqueComponent } from './banque.component';
 import {DataService} from "../services/data.service";
 import {Configuration} from "../configuration/app.constants";
 import {BanqueService} from "../services/banque.service";
+import { DetailPatrimoineComponent } from './detail-patrimoine/detail-patrimoine.component';
+import { GestionTypePatrimoineComponent } from './detail-patrimoine/gestion-type-patrimoine/gestion-type-patrimoine.component';
 
 const routes: Routes = [
   { path: 'banque', redirectTo: '/banque/patrimoine', pathMatch: 'full' },
@@ -21,12 +23,35 @@ const routes: Routes = [
       ]
     },
     component: BanqueComponent
+  },
+  {
+    path: 'detailpatrimoine',
+    data: {
+      title: 'Détail patrimoine',
+      urls: [
+        { title: 'Dashboard', url: '/dashboard' },
+        { title: 'Détail patrimoine' }
+      ]
+    },
+    component: DetailPatrimoineComponent
+  },
+  {
+    path: 'gestiontypepatrimoine',
+    data: {
+      title: 'Gestion du type de patrimoine',
+      urls: [
+        { title: 'Dashboard', url: '/dashboard' },
+        { title: 'Détail patrimoine' , url: 'detailpatrimoine'},
+        { title: 'Gestion type patrimoine' }
+      ]
+    },
+    component: GestionTypePatrimoineComponent
   }
 ];
 
 @NgModule({
   imports: [FormsModule, CommonModule, HighchartsChartModule, RouterModule.forChild(routes)],
-  declarations: [BanqueComponent],
+  declarations: [BanqueComponent, DetailPatrimoineComponent, GestionTypePatrimoineComponent],
   providers: [DataService, BanqueService, Configuration]
 })
 export class BanqueModule {}
