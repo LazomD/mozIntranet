@@ -2,14 +2,14 @@ import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {DataService} from "../services/data.service";
 import * as Highcharts from 'highcharts';
 import {BanqueService} from "../services/banque.service";
-import {Options} from "highcharts";
 
 @Component({
   templateUrl: './banque.component.html'
 })
 export class BanqueComponent implements AfterViewInit, OnInit {
 
-  Highcharts = Highcharts;
+  donnees=null;
+  Highcharts;
   updateFlag = true;
   chartOptions = {
     chart: {
@@ -44,7 +44,7 @@ export class BanqueComponent implements AfterViewInit, OnInit {
 
     series: [{
       name: 'Montant',
-      data: null
+      data: this.donnees
     }]
   };
 
@@ -61,10 +61,11 @@ export class BanqueComponent implements AfterViewInit, OnInit {
 
     this.banqueService.getDataPatrimoineTotal().subscribe(
       (reponse) => {
-        this.chartOptions.series[0].data = reponse;
+        this.donnees = reponse;
+        this.chartOptions.series[0].data = this.donnees;
+        this.Highcharts = Highcharts;
         this.updateFlag = true;
         console.log(reponse);
       }
-  )
-  }
+  )}
 }
