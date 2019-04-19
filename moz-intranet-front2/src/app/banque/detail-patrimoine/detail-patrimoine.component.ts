@@ -42,6 +42,7 @@ const COUNTRIES: Country[] = [
 export class DetailPatrimoineComponent implements OnInit {
 
   countries = COUNTRIES;
+  model;
 
   constructor() { }
 

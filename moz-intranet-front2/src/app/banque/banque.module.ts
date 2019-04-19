@@ -10,6 +10,7 @@ import {Configuration} from "../configuration/app.constants";
 import {BanqueService} from "../services/banque.service";
 import { DetailPatrimoineComponent } from './detail-patrimoine/detail-patrimoine.component';
 import { GestionTypePatrimoineComponent } from './detail-patrimoine/gestion-type-patrimoine/gestion-type-patrimoine.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 const routes: Routes = [
   { path: 'banque', redirectTo: '/banque/patrimoine', pathMatch: 'full' },
@@ -50,7 +51,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [FormsModule, CommonModule, HighchartsChartModule, RouterModule.forChild(routes)],
+  imports: [FormsModule, NgbModule, CommonModule, HighchartsChartModule, RouterModule.forChild(routes)],
   declarations: [BanqueComponent, DetailPatrimoineComponent, GestionTypePatrimoineComponent],
   providers: [DataService, BanqueService, Configuration]
 })
