@@ -18,6 +18,13 @@ export class GestionTypePatrimoineComponent implements OnInit {
   constructor(private banqueService: BanqueService) { }
 
   ngOnInit() {
+    this.banqueService.getAllTypePatrimoine().subscribe(
+      tPtab => {
+        for (let typePatrimoine of tPtab) {
+          this.typesPatrimoine.push(typePatrimoine);
+        }
+      }
+    );
   }
 
   onSubmit() {

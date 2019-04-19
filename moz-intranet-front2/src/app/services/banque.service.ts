@@ -23,4 +23,8 @@ export class BanqueService {
   public saveTypePatrimoine(typePatrimoine: TypePatrimoine):Observable<TypePatrimoine> {
     return this.http.post<TypePatrimoine>(this.configuration.serverBack + "banque/patrimoine/saveType", JSON.stringify(typePatrimoine), this.httpOptions);
   }
+
+  public getAllTypePatrimoine():Observable<TypePatrimoine[]>{
+    return this.http.get<TypePatrimoine[]>(this.configuration.serverBack + "banque/patrimoine/allType");
+  }
 }

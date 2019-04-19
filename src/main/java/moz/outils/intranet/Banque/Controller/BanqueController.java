@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -51,5 +52,14 @@ public class BanqueController {
         return new ResponseEntity<TypePatrimoineDTO>(savedTypePatrimoineDTO , new HttpHeaders(), HttpStatus.CREATED);
     }
 
-
+    @RequestMapping(value = "/banque/patrimoine/allType" , method = RequestMethod.GET)
+    @ResponseBody
+    public List<TypePatrimoineDTO> getAllTypePatrimoine(){
+        List<TypePatrimoine> typePatrimoineList = typePatrimoineRepository.findAll();
+        List<TypePatrimoineDTO> list = new ArrayList<>();
+        for (TypePatrimoine tP : typePatrimoineList) {
+            list.add(modelMapper.map(tP, TypePatrimoineDTO.class));
+        }
+        return list;
+    }
 }
