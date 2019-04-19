@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {NgbCalendar} from "@ng-bootstrap/ng-bootstrap";
 
 interface Country {
   name: string;
@@ -42,11 +44,32 @@ const COUNTRIES: Country[] = [
 export class DetailPatrimoineComponent implements OnInit {
 
   countries = COUNTRIES;
-  model;
+  formGroup: FormGroup;
+  items: FormArray;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder, private calendar: NgbCalendar) { }
 
   ngOnInit() {
+    let date = new Date();
+    this.formGroup = this.formBuilder.group({
+      date: new FormControl(this.calendar.getToday(), [Validators.required]),
+      time: new FormControl({hour: date.getHours(), minute: date.getMinutes(), second: date.getSeconds()}, [Validators.required]),
+      items: this.formBuilder.array([])
+    });
+
+    this.items = this.formGroup.get('items') as FormArray;
+    this.items.push(this.formBuilder.group({
+      name: ['sdfg'],
+      valeur: [53413]
+    }));
+    this.items.push(this.formBuilder.group({
+      name: ['ING'],
+      valeur: [12]
+    }));
+    this.items.push(this.formBuilder.group({
+      name: ['BNP'],
+      valeur: [4563]
+    }));
   }
 
 }

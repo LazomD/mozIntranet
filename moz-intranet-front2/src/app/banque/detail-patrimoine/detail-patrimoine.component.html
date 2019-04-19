@@ -8,50 +8,37 @@
 
         <div>
           <form>
-            <div class="row">
+            <div [formGroup]="formGroup" class="row">
+
               <div class="col">
-                <label>Date</label>
+                <label>Date/Heure</label>
                 <div class="input-group">
                   <input class="form-control" placeholder="yyyy-mm-dd"
-                         name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                         name="dp" formControlName="date" ngbDatepicker #d="ngbDatepicker">
                   <div class="input-group-append">
-                    <button class="btn btn-outline-secondary mdi mdi-calendar" (click)="d.toggle()" type="button"></button>
+                    <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                      <i class="fa fa-calendar"></i>
+                    </button>
                   </div>
                 </div>
               </div>
+
               <div class="col">
-                <label>Another label</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="col">
-                <label>Another label</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="col">
-                <label>Another label</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="col">
-                <label>Another label</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="col">
-                <label>Another label</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="col">
-                <label>Another label</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="col">
-                <label>Another label</label>
-                <input type="text" class="form-control">
+                <div class="input-group" style="margin-top: -0.4em">
+                  <ngb-timepicker name="time" formControlName="time" [seconds]="true"></ngb-timepicker>
+                </div>
               </div>
 
+              <div formArrayName="items"
+                   *ngFor="let item of items.controls; let i = index;" class="col">
+                <div [formGroupName]="i" class="col">
+                  <label>{{item.value.name}}</label>
+                  <input formControlName="valeur" placeholder="Item name" class="form-control">
+                </div>
+              </div>
             </div>
           </form>
         </div>
-        <br>
         <div class="text-right">
           <p><a routerLink="/banque/gestiontypepatrimoine"><button type="button" class="btn btn-primary" >Ajouter</button></a></p>
         </div>

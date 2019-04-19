@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HighchartsChartModule } from 'highcharts-angular';
 
@@ -51,7 +51,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [FormsModule, NgbModule, CommonModule, HighchartsChartModule, RouterModule.forChild(routes)],
+  imports: [FormsModule, NgbModule, CommonModule, HighchartsChartModule, RouterModule.forChild(routes), ReactiveFormsModule],
   declarations: [BanqueComponent, DetailPatrimoineComponent, GestionTypePatrimoineComponent],
   providers: [DataService, BanqueService, Configuration]
 })
