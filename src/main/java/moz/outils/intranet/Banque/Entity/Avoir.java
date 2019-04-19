@@ -8,9 +8,9 @@ public class Avoir {
     public Avoir() {
     }
 
-    public Avoir(Integer userId, Integer typeId, AvoirTimestamp avoirTimestamp, Double montant) {
+    public Avoir(Integer userId, TypePatrimoine typePatrimoine, AvoirTimestamp avoirTimestamp, Double montant) {
         this.userId = userId;
-        this.typeId = typeId;
+        this.typePatrimoine = typePatrimoine;
         this.avoirTimestamp = avoirTimestamp;
         this.montant = montant;
     }
@@ -19,7 +19,10 @@ public class Avoir {
     @GeneratedValue
     private Integer id;
     private Integer userId;
-    private Integer typeId;
+
+    @ManyToOne
+    @JoinColumn(name = "type_patrimoine_id")
+    private TypePatrimoine typePatrimoine;
 
     @ManyToOne
     @JoinColumn(name = "avoir_timestamp_id")
@@ -42,12 +45,12 @@ public class Avoir {
         this.userId = userId;
     }
 
-    public Integer getTypeId() {
-        return typeId;
+    public TypePatrimoine getTypePatrimoine() {
+        return typePatrimoine;
     }
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
+    public void setTypePatrimoine(TypePatrimoine typePatrimoine) {
+        this.typePatrimoine = typePatrimoine;
     }
 
     public Double getMontant() {
