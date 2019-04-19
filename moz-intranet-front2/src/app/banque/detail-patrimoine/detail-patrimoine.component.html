@@ -33,7 +33,7 @@
                    *ngFor="let item of items.controls; let i = index;" class="col">
                 <div [formGroupName]="i" class="col">
                   <label>{{item.value.name}}</label>
-                  <input formControlName="valeur" placeholder="Item name" class="form-control">
+                  <input formControlName="valeur" type="number" placeholder="€" class="form-control">
                 </div>
               </div>
             </div>

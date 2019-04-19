@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbCalendar} from "@ng-bootstrap/ng-bootstrap";
+import {BanqueService} from "../../services/banque.service";
 
 interface Country {
   name: string;
@@ -47,7 +48,7 @@ export class DetailPatrimoineComponent implements OnInit {
   formGroup: FormGroup;
   items: FormArray;
 
-  constructor(private formBuilder: FormBuilder, private calendar: NgbCalendar) { }
+  constructor(private formBuilder: FormBuilder, private calendar: NgbCalendar, private banqueService: BanqueService) { }
 
   ngOnInit() {
     let date = new Date();
@@ -58,18 +59,18 @@ export class DetailPatrimoineComponent implements OnInit {
     });
 
     this.items = this.formGroup.get('items') as FormArray;
-    this.items.push(this.formBuilder.group({
-      name: ['sdfg'],
-      valeur: [53413]
-    }));
-    this.items.push(this.formBuilder.group({
-      name: ['ING'],
-      valeur: [12]
-    }));
-    this.items.push(this.formBuilder.group({
-      name: ['BNP'],
-      valeur: [4563]
-    }));
+
+    this.banqueService.getAllTypePatrimoine().subscribe(
+      tPtab => {
+        for (let typePatrimoine of tPtab) {
+          this.items.push(this.formBuilder.group({
+            id: typePatrimoine.id,
+            name: typePatrimoine.name,
+            valeur: []
+          }));
+        }
+      }
+    );
   }
 
 }
