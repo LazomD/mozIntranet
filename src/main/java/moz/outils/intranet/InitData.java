@@ -1,11 +1,7 @@
 package moz.outils.intranet;
 
-import moz.outils.intranet.Banque.Entity.Avoir;
-import moz.outils.intranet.Banque.Entity.AvoirTimestamp;
-import moz.outils.intranet.Banque.Entity.TypePatrimoine;
-import moz.outils.intranet.Banque.Repository.AvoirRepository;
-import moz.outils.intranet.Banque.Repository.AvoirTimestampRepository;
-import moz.outils.intranet.Banque.Repository.TypePatrimoineRepository;
+import moz.outils.intranet.Banque.Entity.*;
+import moz.outils.intranet.Banque.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -21,12 +17,25 @@ public class InitData {
     private final AvoirTimestampRepository avoirTimestampRepository;
 
     @Autowired
+    private final ClasseRepository classeRepository;
+
+    @Autowired
+    private final EleveRepository eleveRepository;
+
+    @Autowired
     private final TypePatrimoineRepository typePatrimoineRepository;
 
-    public InitData(AvoirRepository avoirRepository, AvoirTimestampRepository avoirTimestampRepository, TypePatrimoineRepository typePatrimoineRepository) {
+    public InitData(AvoirRepository avoirRepository,
+                    AvoirTimestampRepository avoirTimestampRepository,
+                    TypePatrimoineRepository typePatrimoineRepository,
+                    ClasseRepository classeRepository,
+                    EleveRepository eleveRepository
+                    ) {
         this.avoirRepository = avoirRepository;
         this.avoirTimestampRepository = avoirTimestampRepository;
         this.typePatrimoineRepository = typePatrimoineRepository;
+        this.classeRepository = classeRepository;
+        this.eleveRepository = eleveRepository;
     }
 
     @EventListener
@@ -70,5 +79,10 @@ public class InitData {
         AvoirTimestamp avoirTimestamp8 = new AvoirTimestamp(1, 1546977879);
         avoirTimestampRepository.save(avoirTimestamp8);
         avoirRepository.save(new Avoir(1, typePatrimoine1, avoirTimestamp8, Double.valueOf(3000)));
+
+        Classe classe = new Classe("Michelet CM2 - 1", "Portail Rouge");
+        classeRepository.save(classe);
+        Eleve eleve = new Eleve("Julie", classe);
+        eleveRepository.save(eleve);
     }
 }
