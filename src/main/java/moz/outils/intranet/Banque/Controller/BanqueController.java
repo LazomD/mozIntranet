@@ -2,7 +2,6 @@ package moz.outils.intranet.Banque.Controller;
 
 import moz.outils.intranet.Banque.DTO.MesureDTO;
 import moz.outils.intranet.Banque.DTO.TypePatrimoineDTO;
-import moz.outils.intranet.Banque.Entity.Avoir;
 import moz.outils.intranet.Banque.Entity.TypePatrimoine;
 import moz.outils.intranet.Banque.Repository.AvoirRepository;
 import moz.outils.intranet.Banque.Repository.TypePatrimoineRepository;
@@ -21,13 +20,13 @@ import java.util.List;
 public class BanqueController {
 
     @Autowired
-    Tools tools;
+    private Tools tools;
 
     @Autowired
-    AvoirRepository avoirRepository;
+    private AvoirRepository avoirRepository;
 
     @Autowired
-    TypePatrimoineRepository typePatrimoineRepository;
+    private TypePatrimoineRepository typePatrimoineRepository;
 
     @Autowired
     private ModelMapper modelMapper;
