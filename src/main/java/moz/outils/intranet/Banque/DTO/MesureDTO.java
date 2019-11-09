@@ -25,4 +25,5 @@ public class MesureDTO {
     public void setTimestamp(Integer timestamp) {
         this.timestamp = timestamp;
     }
+
 }
