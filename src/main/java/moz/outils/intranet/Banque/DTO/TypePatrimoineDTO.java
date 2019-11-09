@@ -2,7 +2,6 @@ package moz.outils.intranet.Banque.DTO;
 
 public class TypePatrimoineDTO {
 
-
     public Integer id;
     public String name;
 
