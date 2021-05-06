@@ -34,7 +34,7 @@
         "d3": "^4.8.0",
         "datatables.net": "^1.10.16",
         "datatables.net-dt": "^1.10.16",
-        "highcharts": "~7.0.3",
+        "highcharts": "~9.0.0",
         "highcharts-angular": "^2.4.0",
         "jquery": "^3.4.1",
         "ng-chartist": "^1.1.1",
